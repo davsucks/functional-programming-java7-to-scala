@@ -25,7 +25,11 @@ public class IntegerReporter {
                 returnString += (int) sqrt(number) + ", ";
             }
         }
-        return returnString.substring(0, returnString.length() - 2);
+        return remove_final_separator_from(returnString);
+    }
+
+    private String remove_final_separator_from(String string) {
+        return string.substring(0, string.length() -2);
     }
 
 }
