@@ -1,5 +1,7 @@
 package com.thoughtworks.jcprogram.functional.exercise;
 
+import com.thoughtworks.jcprogram.functional.exercise.Operation.Operation;
+import com.thoughtworks.jcprogram.functional.exercise.Operation.SquareRoot;
 import com.thoughtworks.jcprogram.functional.exercise.Predicate.IsGreaterThanFour;
 import com.thoughtworks.jcprogram.functional.exercise.Predicate.Predicate;
 
@@ -23,7 +25,7 @@ public class IntegerReporter {
     }
 
     public String reportSquareRootsOfLargeNumbers(List<Integer> numbers) {
-        List<Integer> new_numbers = apply_if(numbers, new IsGreaterThanFour(), new Operation());
+        List<Integer> new_numbers = apply_if(numbers, new IsGreaterThanFour(), new SquareRoot());
         return joinWithCommas(new_numbers);
     }
 
@@ -47,11 +49,5 @@ public class IntegerReporter {
             }
         }
         return newList;
-    }
-
-    private class Operation {
-        public Integer apply(Integer integer) {
-            return (int) sqrt(integer);
-        }
     }
 }
