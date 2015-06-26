@@ -1,5 +1,8 @@
 package com.thoughtworks.jcprogram.functional.exercise;
 
+import com.thoughtworks.jcprogram.functional.exercise.Predicate.IsGreaterThanFour;
+import com.thoughtworks.jcprogram.functional.exercise.Predicate.Predicate;
+
 import java.util.ArrayList;
 import java.util.List;
 
@@ -20,7 +23,7 @@ public class IntegerReporter {
     }
 
     public String reportSquareRootsOfLargeNumbers(List<Integer> numbers) {
-        List<Integer> new_numbers = apply_if(numbers, new Predicate(), new Operation());
+        List<Integer> new_numbers = apply_if(numbers, new IsGreaterThanFour(), new Operation());
         return joinWithCommas(new_numbers);
     }
 
@@ -44,12 +47,6 @@ public class IntegerReporter {
             }
         }
         return newList;
-    }
-
-    private class Predicate {
-        public boolean isTrue(Integer integer) {
-            return integer > 4;
-        }
     }
 
     private class Operation {
