@@ -1,5 +1,6 @@
 package com.thoughtworks.jcprogram.functional.exercise;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import static java.lang.Math.sqrt;
@@ -19,11 +20,14 @@ public class IntegerReporter {
     }
 
     public String reportSquareRootsOfLargeNumbers(List<Integer> numbers) {
+        List<Integer> new_numbers = apply_if(numbers, new Predicate(), new Operation());
+        return joinWithCommas(new_numbers);
+    }
+
+    private String joinWithCommas(List<Integer> new_numbers) {
         String returnString = "";
-        for (Integer number : numbers) {
-            if (number > 4) {
-                returnString += (int) sqrt(number) + ", ";
-            }
+        for (Integer new_number : new_numbers) {
+            returnString += new_number + ", ";
         }
         return remove_final_separator_from(returnString);
     }
@@ -32,4 +36,25 @@ public class IntegerReporter {
         return (string.length() > 2) ? string.substring(0, string.length() - 2) : string;
     }
 
+    private List<Integer> apply_if(List<Integer> original, Predicate predicate, Operation operation) {
+        ArrayList<Integer> newList = new ArrayList<>();
+        for (Integer integer : original) {
+            if (predicate.isTrue(integer)) {
+                newList.add(operation.apply(integer));
+            }
+        }
+        return newList;
+    }
+
+    private class Predicate {
+        public boolean isTrue(Integer integer) {
+            return integer > 4;
+        }
+    }
+
+    private class Operation {
+        public Integer apply(Integer integer) {
+            return (int) sqrt(integer);
+        }
+    }
 }
