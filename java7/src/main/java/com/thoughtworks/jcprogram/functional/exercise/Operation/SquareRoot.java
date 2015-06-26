@@ -5,9 +5,9 @@ import static java.lang.Math.sqrt;
 /**
  * Created by dsucksto on 6/26/15.
  */
-public class SquareRoot implements Operation {
+public class SquareRoot<T> implements Operation {
     @Override
-    public Integer apply(Integer integer) {
-        return (int) sqrt(integer);
+    public Integer apply(Object object) {
+        return (int) sqrt((int) object);
     }
 }
