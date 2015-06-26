@@ -2,6 +2,7 @@ package com.thoughtworks.jcprogram.functional.exercise;
 
 import java.util.List;
 
+import static java.lang.Math.sqrt;
 import static java.util.Arrays.asList;
 
 // Given a list of numbers like {1, 9, 4, 16, 4}
@@ -18,7 +19,13 @@ public class IntegerReporter {
     }
 
     public String reportSquareRootsOfLargeNumbers(List<Integer> numbers) {
-        return "34";
+        String returnString = "";
+        for (Integer number : numbers) {
+            if (number > 4) {
+                returnString += (int) sqrt(number) + ", ";
+            }
+        }
+        return returnString.substring(0, returnString.length() - 2);
     }
 
 }
