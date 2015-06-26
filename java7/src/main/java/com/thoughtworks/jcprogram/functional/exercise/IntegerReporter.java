@@ -29,7 +29,7 @@ public class IntegerReporter {
     }
 
     private String remove_final_separator_from(String string) {
-        return string.substring(0, string.length() -2);
+        return (string.length() > 2) ? string.substring(0, string.length() - 2) : string;
     }
 
 }
