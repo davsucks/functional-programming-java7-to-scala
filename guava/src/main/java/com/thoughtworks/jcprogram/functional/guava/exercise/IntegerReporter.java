@@ -37,8 +37,6 @@ public class IntegerReporter {
                 return (int) sqrt(input);
             }
         });
-        Joiner joiner = Joiner.on(", ");
-        return joiner.join(filteredList);
+        return Joiner.on(", ").join(filteredList);
     }
-
 }
